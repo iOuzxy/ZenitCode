@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenitCode - Servicios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; color: #111111; background-color: #ffffff; }
+        .navbar { padding: 1.25rem 0; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #f0f0f0; }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.5px; color: #000000; }
+        .nav-link { color: #444444; font-weight: 500; margin: 0 0.5rem; transition: color 0.2s ease; }
+        .nav-link:hover, .nav-link.active { color: #000000; }
+        .section-title { font-weight: 700; font-size: 2.25rem; letter-spacing: -0.5px; margin-bottom: 1rem; }
+        .custom-card { border: 1px solid #eaeaea; border-radius: 16px; padding: 2rem; background: #ffffff; transition: all 0.3s ease; height: 100%; }
+        .custom-card:hover { border-color: #000000; transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+        .icon-box { width: 56px; height: 56px; background-color: #f4f4f4; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; color: #000000; }
+        footer { border-top: 1px solid #eeeeee; padding: 40px 0; background-color: #ffffff; }
+        .social-link { color: #000000; font-size: 1.25rem; margin-left: 1.25rem; transition: opacity 0.2s; }
+        .social-link:hover { opacity: 0.6; color: #000000; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="inicio.html">ZenitCode</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5 bg-light" style="margin-top: 80px; min-height: 80vh;">
+        <div class="container py-5">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="section-title">Servicios</h2>
+                    <p class="text-muted">Diseñamos y construimos plataformas digitales adaptadas a las necesidades específicas de tu empresa.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card">
+                        <div class="icon-box"><i class="bi bi-laptop"></i></div>
+                        <h3 class="h5 fw-bold mb-2">Desarrollo Web</h3>
+                        <p class="text-muted small m-0">Aplicaciones web modernas, rápidas y escalables construidas con las tecnologías más recientes.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card">
+                        <div class="icon-box"><i class="bi bi-phone"></i></div>
+                        <h3 class="h5 fw-bold mb-2">Apps Móviles</h3>
+                        <p class="text-muted small m-0">Experiencias nativas e híbridas de alto rendimiento para plataformas iOS y Android.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card">
+                        <div class="icon-box"><i class="bi bi-cloud-arrow-up"></i></div>
+                        <h3 class="h5 fw-bold mb-2">Cloud & DevOps</h3>
+                        <p class="text-muted small m-0">Infraestructura en la nube, despliegue continuo y optimización de servidores.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card">
+                        <div class="icon-box"><i class="bi bi-lightbulb"></i></div>
+                        <h3 class="h5 fw-bold mb-2">Consultoría Tech</h3>
+                        <p class="text-muted small m-0">Asesoramiento técnico para auditorías de código, arquitectura y estrategia digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0 text-muted small">&copy; 2026 ZenitCode. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
