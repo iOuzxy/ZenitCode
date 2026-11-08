@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacia - Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            --bg-body: #f8fafc;
+            --surface-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        .glass-navbar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+        }
+
+        .sidebar-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1rem 0.75rem;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+        }
+
+        .sidebar-card .nav-link {
+            color: var(--text-muted);
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.25s ease;
+        }
+
+        .sidebar-card .nav-link:hover {
+            color: #0284c7;
+            background-color: #f0f9ff;
+            transform: translateX(4px);
+        }
+
+        .sidebar-card .nav-link.active {
+            background: var(--primary-gradient);
+            color: #ffffff !important;
+        }
+
+        .table-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .custom-table td {
+            padding: 1rem 1.25rem;
+            color: #334155;
+            font-size: 0.925rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+     <nav class="navbar navbar-expand-lg glass-navbar py-2 px-3 mb-4">
+        <div class="container-fluid">
+            <div class="container-fluid">
+    <a class="navbar-brand" href="sesioninicio.html" style="font-family: 'Inter', sans-serif; font-size: 44px; font-weight: 600;" >
+      <img src="images/icon.png" alt="Logo" width="70" height="64" class="d-inline-block align-text-top">
+      Farmacia
+    </a>
+  </div>
+
+            <div class="d-flex align-items-center gap-3 ms-auto">
+                <div class="d-none d-md-flex align-items-center gap-2 bg-light px-3 py-1.5 rounded-pill border">
+                    <i class="bi bi-person-circle text-secondary"></i>
+                    <span class="small fw-medium text-secondary">Usuario:</span>
+                    <span class="small fw-bold text-dark">Empleado</span>
+                </div>
+                
+                <button class="btn btn-outline-secondary btn-sm rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;" title="Notificaciones">
+                    <i class="bi bi-bell"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid px-4 pb-5">
+        <div class="row g-4">
+
+            <div class="col-12 col-lg-3 col-xl-2">
+                <div class="sidebar-card">
+                    <div class="text-xs fw-bold text-uppercase text-muted px-3 mb-2" style="font-size: 0.7rem; letter-spacing: 0.5px;">Menú Principal</div>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="inicio.html"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+                        <a class="nav-link" href="inventario.html"><i class="bi bi-box-seam"></i> Inventario / Stock</a>
+                        <a class="nav-link" href="ventas.html"><i class="bi bi-cart-plus"></i> Registrar Venta</a>
+                        <a class="nav-link active" href="clientes.html"><i class="bi bi-people"></i> Clientes</a>
+                        <a class="nav-link" href="reportes.html"><i class="bi bi-graph-up-arrow"></i> Reporte Semanal</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-9 col-xl-10">
+
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                    <div>
+                        <h4 class="fw-bold mb-1">Directorio de Clientes</h4>
+                        <p class="text-muted small mb-0">Clientes frecuentes registrados en la farmacia.</p>
+                    </div>
+                    <button class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#modalCliente">
+                        + Nuevo Cliente
+                    </button>
+                </div>
+
+                <div class="table-card">
+                    <div class="p-3 border-bottom d-flex flex-wrap align-items-center justify-content-between gap-3">
+                        <div class="fw-bold text-dark">
+                            <span>Clientes Registrados</span>
+                        </div>
+                        <input type="text" id="buscarCli" class="form-control form-control-sm" style="max-width: 260px;" placeholder="Buscar cliente...">
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table custom-table align-middle mb-0" id="tablaClientes">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Teléfono</th>
+                                    <th>Correo</th>
+                                    <th>Estatus</th>
+                                    <th class="text-end">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCliente" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Registrar Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label small">Nombre completo</label>
+                        <input type="text" id="nomCli" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Teléfono</label>
+                        <input type="text" id="telCli" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label small">Correo</label>
+                        <input type="email" id="corCli" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-dark btn-sm" onclick="guardarCli()" data-bs-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="datos.js"></script>
+    <script>
+        var correos = new Set();
+        for (var i = 0; i < clientes.length; i++) {
+            correos.add(clientes[i].correo.toLowerCase());
+        }
+
+        function mostrarClientes() {
+            var valor = document.getElementById('buscarCli').value.toLowerCase();
+            var tbody = document.querySelector('#tablaClientes tbody');
+            tbody.innerHTML = '';
+            for (var i = 0; i < clientes.length; i++) {
+                var c = clientes[i];
+                var texto = (c.codigo + ' ' + c.nombre + ' ' + c.telefono + ' ' + c.correo).toLowerCase();
+                if (texto.indexOf(valor) > -1) {
+                    tbody.innerHTML += '<tr><td><span class="badge bg-light text-dark border font-monospace">' + c.codigo + '</span></td><td class="fw-semibold text-dark">' + c.nombre + '</td><td>' + c.telefono + '</td><td>' + c.correo + '</td><td><span>' + c.estatus + '</span></td><td class="text-end"><button class="btn btn-link text-muted p-0 me-2" title="Editar" onclick="editarCliente(' + i + ')"><i class="bi bi-pencil"></i></button><button class="btn btn-link text-danger p-0" title="Borrar" onclick="borrarCliente(' + i + ')"><i class="bi bi-trash"></i></button></td></tr>';
+                }
+            }
+        }
+
+        function guardarCli() {
+            var nom = document.getElementById('nomCli').value.trim();
+            var tel = document.getElementById('telCli').value.trim();
+            var cor = document.getElementById('corCli').value.trim();
+
+            if (nom === '') {
+                return;
+            }
+            if (cor !== '' && correos.has(cor.toLowerCase())) {
+                alert('Ya existe un cliente con ese correo.');
+                return;
+            }
+
+            var num = clientes.length > 0 ? Number(clientes[clientes.length - 1].codigo.substring(2)) + 1 : 1;
+            var codigo = num < 10 ? 'C-0' + num : 'C-' + num;
+            clientes.push({ codigo: codigo, nombre: nom, telefono: tel, correo: cor, estatus: 'Activo' });
+            if (cor !== '') {
+                correos.add(cor.toLowerCase());
+            }
+            guardar();
+            mostrarClientes();
+        }
+
+        function editarCliente(i) {
+            var c = clientes[i];
+            var tel = prompt('Nuevo teléfono de ' + c.nombre, c.telefono);
+            if (tel === null) {
+                return;
+            }
+            var cor = prompt('Nuevo correo de ' + c.nombre, c.correo);
+            if (cor === null) {
+                return;
+            }
+            if (cor.toLowerCase() !== c.correo.toLowerCase() && correos.has(cor.toLowerCase())) {
+                alert('Ya existe un cliente con ese correo.');
+                return;
+            }
+            correos.delete(c.correo.toLowerCase());
+            correos.add(cor.toLowerCase());
+            c.telefono = tel;
+            c.correo = cor;
+            guardar();
+            mostrarClientes();
+        }
+
+        function borrarCliente(i) {
+            if (!confirm('¿Borrar a ' + clientes[i].nombre + '?')) {
+                return;
+            }
+            correos.delete(clientes[i].correo.toLowerCase());
+            clientes.splice(i, 1);
+            guardar();
+            mostrarClientes();
+        }
+
+        document.getElementById('buscarCli').addEventListener('keyup', mostrarClientes);
+
+        mostrarClientes();
+    </script>
+</body>
+</html>
